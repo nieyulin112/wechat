@@ -6,6 +6,7 @@ var util = require('./util');
 module.exports = function(opts) {
   console.log('opts', opts);
   return function*(next) {
+    var that = this;
     console.log(this.query);
     var token = opts.wechat.token;
     var signature = this.query.signature;
@@ -33,6 +34,24 @@ module.exports = function(opts) {
         });
         var content = yield util.parseXMLAsync(data);
         console.log('content', content);
+        var message = util.formatMessage(content.xml);
+        console.log(message);
+        if(message.MsgType === 'event') {
+            if(message.Event === 'subscribe') {
+                var now = new Date().getTime();
+                that.status = 200;
+                that.type = 'application/xml';
+                that.body = '<xml>'+
+                     '<ToUserName><![CDATA['+ message.FromUserName + ']]></ToUserName>'+
+                     '<FromUserName><![CDATA['+ message.ToUserName +']]></FromUserName>'+
+                     '<CreateTime>'+ now +'</CreateTime>'+
+                     '<MsgType><![CDATA[text]]></MsgType>'+
+                     '<Content><![CDATA[this is a imooc]]></Content>'+
+                     '<MsgId>'+ message.MsgId +'</MsgId>'+
+                     '</xml>'
+               return ;
+            }
+        }
       }
     }
   };
