@@ -1,10 +1,10 @@
 #微信公众号开发
 第一天
-1.javascript
-2.nodejs
-3.nodejs + mongodb
-4.微信公众号的接口
-5.开发的流程
+**1.javascript
+**2.nodejs
+**3.nodejs + mongodb
+**4.微信公众号的接口
+**5.开发的流程
 
 一.微信的的种类和特点
 1.企业号
@@ -72,3 +72,4 @@ https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/ind
 2.Promise如何使用
 3.koa和express中间件的使用
 4.Generator生成器
+
