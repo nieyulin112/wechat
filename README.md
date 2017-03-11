@@ -72,4 +72,6 @@ https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/ind
 2.Promise如何使用
 3.koa和express中间件的使用
 4.Generator生成器
-
+4.1简介
+4.2封装消息响应
+4.3自动回复各种消息
