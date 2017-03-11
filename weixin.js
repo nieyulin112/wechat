@@ -9,6 +9,7 @@ exports.reply = function* (next) {
             this.body = '哈哈,你订阅了找个号' + '消息ID' + message.MsgId;
         } else if (message.Event === 'unsubscribe') {
             console.log('退出订阅');
+            this.body = '';
         } else if(message.Event === 'LOACTION') {
             this.body = '你上报的位置是' + message.Latitude + '/' + message.Longitude + '-'
             + message.Precision;
